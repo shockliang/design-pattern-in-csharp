@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace SOLID
@@ -24,23 +25,16 @@ namespace SOLID
         {
             return string.Join(Environment.NewLine, entries);
         }
+    }
 
-        // Violating the Single Responsibility Principle
-        public void Save(string fileName)
+    public class Persistence
+    {
+        public void SaveToFile(Journal j, string fileName, bool overwrite = false)
         {
-            File.WriteAllText(fileName, ToString());
-        }
-
-        // Violating the Single Responsibility Principle
-        public static Journal Load(string fileName)
-        {
-
-        }
-        
-        // Violating the Single Responsibility Principle
-        public void Load(Uri uri)
-        {
-
+            if (overwrite || !File.Exists(fileName))
+            {
+                File.WriteAllText(fileName, j.ToString());
+            }
         }
     }
 
@@ -52,6 +46,11 @@ namespace SOLID
             j.AddEntry("I laughed today!");
             j.AddEntry("I ate a bug!");
             Console.WriteLine(j);
+
+            var p = new Persistence();
+            var fileName = @"./journal.txt";
+            p.SaveToFile(j, fileName, true);
+            Process.Start(fileName);    // chmod +x first.
         }
     }
 }
