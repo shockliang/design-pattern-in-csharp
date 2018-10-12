@@ -5,35 +5,57 @@ using System.IO;
 
 namespace SOLID
 {
-    public class Journal
+    public enum Color
     {
-        private readonly List<string> entries = new List<string>();
-        private static int count = 0;
+        Red, Green, Blue
+    }
+    public enum Size
+    {
+        Small, Medium, Large, Yuge
+    }
 
-        public int AddEntry(string text)
-        {
-            entries.Add($"{++count}: {text}");
-            return count;
-        }
+    public class Product
+    {
+        public string Name;
+        public Color Color;
+        public Size Size;
 
-        public void RemoveEntry(int index)
+        public Product(string name, Color color, Size size)
         {
-            entries.RemoveAt(index);
-        }
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException(paramName: nameof(name));
 
-        public override string ToString()
-        {
-            return string.Join(Environment.NewLine, entries);
+            Name = name;
+            Color = color;
+            Size = size;
         }
     }
 
-    public class Persistence
+    public class ProductFilter
     {
-        public void SaveToFile(Journal j, string fileName, bool overwrite = false)
+        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
         {
-            if (overwrite || !File.Exists(fileName))
+            foreach (var p in products)
             {
-                File.WriteAllText(fileName, j.ToString());
+                if (p.Size == size)
+                    yield return p;
+            }
+        }
+        public IEnumerable<Product> FilterByColor(IEnumerable<Product> products, Color color)
+        {
+            foreach (var p in products)
+            {
+                if (p.Color == color)
+                    yield return p;
+            }
+        }
+
+        public IEnumerable<Product> FilterBySizeAndColor(IEnumerable<Product> products, Size size, Color color)
+        {
+            foreach (var p in products)
+            {
+                if (p.Color == color && p.Size == size)
+                    yield return p;
             }
         }
     }
@@ -42,15 +64,18 @@ namespace SOLID
     {
         static void Main(string[] args)
         {
-            var j = new Journal();
-            j.AddEntry("I laughed today!");
-            j.AddEntry("I ate a bug!");
-            Console.WriteLine(j);
+            var apple = new Product("Apple", Color.Green, Size.Small);
+            var tree = new Product("Tree", Color.Green, Size.Large);
+            var house = new Product("House", Color.Blue, Size.Large);
 
-            var p = new Persistence();
-            var fileName = @"./journal.txt";
-            p.SaveToFile(j, fileName, true);
-            Process.Start(fileName);    // chmod +x first.
+            var products = new Product[] { apple, tree, house };
+
+            var pf = new ProductFilter();
+            Console.WriteLine($"Green products (old):");
+            foreach (var p in pf.FilterByColor(products, Color.Green))
+            {
+                Console.WriteLine($" - {p.Name} is green");
+            }
         }
     }
 }
