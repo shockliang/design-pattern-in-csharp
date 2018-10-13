@@ -6,58 +6,62 @@ using static System.Console;
 
 namespace SOLID
 {
-    public class Rectangle
+    public class Document
     {
-        public virtual int Width { get; set; }
-        public virtual int Height { get; set; }
 
-        public Rectangle()
+    }
+
+    public interface IMachine
+    {
+        void Print(Document document);
+        void Scna(Document document);
+        void Fax(Document document);
+    }
+
+    public class MultiFunctionPrinter : IMachine
+    {
+        public void Fax(Document document)
         {
-
+            //
         }
 
-        public Rectangle(int width, int height)
+        public void Print(Document document)
         {
-            Width = width;
-            Height = height;
+            //
         }
 
-        public override string ToString()
+        public void Scna(Document document)
         {
-            return $"{nameof(Width)} : {Width}, {nameof(Height)} : {Height}";
+            //
         }
     }
 
-    public class Square : Rectangle
+    // Only print functionality.
+    public class OldFashionedPrinter : IMachine
     {
-        public override int Width
+        public void Print(Document document)
         {
-            set
-            {
-                base.Width = base.Height = value;
-            }
+            // implementing
         }
 
-        public override int Height
+        // Must comment not support in old fashioned print.
+        public void Fax(Document document)
         {
-            set
-            {
-                base.Height = base.Width = value;
-            }
+            throw new NotImplementedException();
+        }
+
+        // Must comment not support in old fashioned print.
+        public void Scna(Document document)
+        {
+            throw new NotImplementedException();
         }
     }
 
     class Program
     {
-        public static int Area(Rectangle rectangle) => rectangle.Width * rectangle.Height;
         static void Main(string[] args)
         {
-            var rc = new Rectangle(3, 4);
-            WriteLine($"{rc} has area {Area(rc)}");
 
-            Rectangle sq = new Square();
-            sq.Width = 4;
-            WriteLine($"{sq} has area {Area(sq)}");
         }
     }
 }
