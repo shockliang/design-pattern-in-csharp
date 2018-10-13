@@ -2,169 +2,62 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using static System.Console;
 
 namespace SOLID
 {
-    public enum Color
+    public class Rectangle
     {
-        Red, Green, Blue
-    }
-    public enum Size
-    {
-        Small, Medium, Large, Yuge
-    }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
-    public class Product
-    {
-        public string Name;
-        public Color Color;
-        public Size Size;
-
-        public Product(string name, Color color, Size size)
+        public Rectangle()
         {
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException(paramName: nameof(name));
 
-            Name = name;
-            Color = color;
-            Size = size;
+        }
+
+        public Rectangle(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Width)} : {Width}, {nameof(Height)} : {Height}";
         }
     }
 
-    public class ProductFilter
+    public class Square : Rectangle
     {
-        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
+        public new int Width
         {
-            foreach (var p in products)
+            set
             {
-                if (p.Size == size)
-                    yield return p;
-            }
-        }
-        public IEnumerable<Product> FilterByColor(IEnumerable<Product> products, Color color)
-        {
-            foreach (var p in products)
-            {
-                if (p.Color == color)
-                    yield return p;
+                base.Width = base.Height = value;
             }
         }
 
-        public IEnumerable<Product> FilterBySizeAndColor(IEnumerable<Product> products, Size size, Color color)
+        public new int Height
         {
-            foreach (var p in products)
+            set
             {
-                if (p.Color == color && p.Size == size)
-                    yield return p;
-            }
-        }
-    }
-
-    public interface ISpecification<T>
-    {
-        bool IsSatisfied(T t);
-    }
-
-    public interface IFilter<T>
-    {
-        IEnumerable<T> Filter(IEnumerable<T> items, ISpecification<T> spec);
-    }
-
-    public class ColorSpecification : ISpecification<Product>
-    {
-        private readonly Color color;
-
-        public ColorSpecification(Color color)
-        {
-            this.color = color;
-        }
-
-        public bool IsSatisfied(Product t)
-        {
-            return t.Color == color;
-        }
-    }
-
-    public class SizeSpecification : ISpecification<Product>
-    {
-        private readonly Size size;
-
-        public SizeSpecification(Size size)
-        {
-            this.size = size;
-        }
-
-        public bool IsSatisfied(Product t)
-        {
-            return t.Size == size;
-        }
-    }
-
-    public class AndSpecification<T> : ISpecification<T>
-    {
-        private readonly ISpecification<T> first;
-        private readonly ISpecification<T> second;
-
-        public AndSpecification(ISpecification<T> first, ISpecification<T> second)
-        {
-            this.first = first ?? throw new ArgumentNullException(paramName: nameof(first));
-            this.second = second ?? throw new ArgumentNullException(paramName: nameof(second));
-        }
-
-        public bool IsSatisfied(T t)
-        {
-            return first.IsSatisfied(t) && second.IsSatisfied(t);
-        }
-    }
-
-    public class BetterFilter : IFilter<Product>
-    {
-        public IEnumerable<Product> Filter(IEnumerable<Product> items, ISpecification<Product> spec)
-        {
-            foreach (var i in items)
-            {
-                if (spec.IsSatisfied(i))
-                    yield return i;
+                base.Height = base.Width = value;
             }
         }
     }
 
     class Program
     {
+        public static int Area(Rectangle rectangle) => rectangle.Width * rectangle.Height;
         static void Main(string[] args)
         {
-            var apple = new Product("Apple", Color.Green, Size.Small);
-            var tree = new Product("Tree", Color.Green, Size.Large);
-            var house = new Product("House", Color.Blue, Size.Large);
+            var rc = new Rectangle(3, 4);
+            WriteLine($"{rc} has area {Area(rc)}");
 
-            var products = new Product[] { apple, tree, house };
-
-            var pf = new ProductFilter();
-            Console.WriteLine("Green products (old):");
-            foreach (var p in pf.FilterByColor(products, Color.Green))
-            {
-                Console.WriteLine($" - {p.Name} is green");
-            }
-
-            var bf = new BetterFilter();
-            Console.WriteLine("Green products (new):");
-            foreach (var p in bf.Filter(products, new ColorSpecification(Color.Green)))
-            {
-                Console.WriteLine($" - {p.Name} is green");
-            }
-
-            Console.WriteLine("Large blue item");
-            foreach (var p in bf.Filter(
-                products,
-                new AndSpecification<Product>(
-                    new ColorSpecification(Color.Blue),
-                    new SizeSpecification(Size.Large)
-                )))
-            {
-                Console.WriteLine($" - {p.Name} is big and blue");
-            }
-
-
+            Rectangle sq = new Square();
+            sq.Width = 4;
+            WriteLine($"{sq} has area {Area(sq)}");
         }
     }
 }
