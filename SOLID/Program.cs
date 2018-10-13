@@ -20,8 +20,13 @@ namespace SOLID
         // public DateTime DateOfBirth;
     }
 
+    public interface IRelationshipBrowser
+    {
+        IEnumerable<Person> FindAllChildrenOf(string name);
+    }
+
     // low-level
-    public class Relationships
+    public class Relationships : IRelationshipBrowser
     {
         private List<(Person, Relationship, Person)> relations
             = new List<(Person, Relationship, Person)>();
@@ -32,20 +37,36 @@ namespace SOLID
             relations.Add((child, Relationship.Child, parent));
         }
 
-        public List<(Person, Relationship, Person)> Relations => relations;
+        public IEnumerable<Person> FindAllChildrenOf(string name)
+        {
+            return relations
+                .Where(x => x.Item1.Name == name &&
+                            x.Item2 == Relationship.Parent)
+                .Select(r => r.Item3);
+        }
+
+        // public List<(Person, Relationship, Person)> Relations => relations;
     }
 
     public class Research
     {
-        public Research(Relationships relationships)
+        // public Research(Relationships relationships)
+        // {
+        //     var relations = relationships.Relations;
+        //     foreach (var r in relations.Where(
+        //         x => x.Item1.Name == "John" &&
+        //             x.Item2 == Relationship.Parent
+        //     ))
+        //     {
+        //         WriteLine($"John has a child called {r.Item3.Name}");
+        //     }
+        // }
+
+        public Research(IRelationshipBrowser browser)
         {
-            var relations = relationships.Relations;
-            foreach (var r in relations.Where(
-                x => x.Item1.Name == "John" &&
-                    x.Item2 == Relationship.Parent
-            ))
+            foreach (var p in browser.FindAllChildrenOf("John"))
             {
-                WriteLine($"John has a child called {r.Item3.Name}");
+                WriteLine($"John has a child called {p.Name}");
             }
         }
 
