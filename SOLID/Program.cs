@@ -8,8 +8,8 @@ namespace SOLID
 {
     public class Rectangle
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public virtual int Width { get; set; }
+        public virtual int Height { get; set; }
 
         public Rectangle()
         {
@@ -30,7 +30,7 @@ namespace SOLID
 
     public class Square : Rectangle
     {
-        public new int Width
+        public override int Width
         {
             set
             {
@@ -38,7 +38,7 @@ namespace SOLID
             }
         }
 
-        public new int Height
+        public override int Height
         {
             set
             {
