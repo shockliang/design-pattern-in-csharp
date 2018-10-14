@@ -5,72 +5,33 @@ using static System.Console;
 
 namespace Builder
 {
-    public class HtmlElement
+    public class Person
     {
-        public string Name, Text;
-        public List<HtmlElement> Elements = new List<HtmlElement>();
-        private const int indentSize = 2;
-
-        public HtmlElement() { }
-
-        public HtmlElement(string name, string text)
-        {
-            Name = name ?? throw new ArgumentNullException(paramName: nameof(name));
-            Text = text ?? throw new ArgumentNullException(paramName: nameof(text));
-        }
-
-        private string ToStringImpl(int indent)
-        {
-            var sb = new StringBuilder();
-            var i = new string(' ', indentSize * indent);
-
-            sb.AppendLine($"{i}<{Name}>");
-            if (!string.IsNullOrWhiteSpace(Text))
-            {
-                sb.Append(new string(' ', indentSize * (indent + 1)));
-                sb.AppendLine(Text);
-            }
-
-            foreach (var e in Elements)
-            {
-                sb.Append(e.ToStringImpl(indent + 1));
-            }
-            sb.AppendLine($"{i}</{Name}>");
-            return sb.ToString();
-        }
+        public string Name;
+        public string Position;
 
         public override string ToString()
         {
-            return ToStringImpl(0);
+            return $"{nameof(Name)}: {name}, {nameof(Position)}: {Position}";
         }
     }
 
-    public class HtmlBuilder
+    public class PersonInfoBuilder
     {
-        private HtmlElement root = new HtmlElement();
-        private readonly string rootName;
-
-        public HtmlBuilder(string rootName)
+        protected Person person = new Person();
+        public PersonInfoBuilder Called(string name)
         {
-            this.rootName = rootName;
-            root.Name = rootName;
-        }
-
-        public HtmlBuilder AddChild(string childName, string childText)
-        {
-            var e = new HtmlElement(childName, childText);
-            root.Elements.Add(e);
+            person.Name = name;
             return this;
         }
+    }
 
-        public override string ToString()
+    public class PersonJobBuilder: PersonInfoBuilder
+    {
+        public PersonJobBuilder WorkAsA(string position)
         {
-            return root.ToString();
-        }
-
-        public void Clear()
-        {
-            root = new HtmlElement() { Name = rootName };
+            person.Position = position;
+            return this;
         }
     }
 
@@ -78,30 +39,12 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            var hello = "hello";
-            var sb = new StringBuilder();
-            sb.Append("<p>");
-            sb.Append(hello);
-            sb.Append("</p>");
+            var builder = new PersonJobBuilder();
 
-            WriteLine(sb.ToString());
-
-            var words = new[] { "hello", "world" };
-            sb.Clear();
-            sb.Append("<ul>");
-            foreach (var word in words)
-            {
-                sb.AppendFormat("<li>{0}</li>", word);
-            }
-            sb.Append("</ul>");
-
-            WriteLine(sb.ToString());
-
-            var builder = new HtmlBuilder("ul");
-            builder
-                .AddChild("li", "hello")
-                .AddChild("li", "world");
-            WriteLine(builder.ToString());
+            // This doesn't work cause the PersonInfoBuilder did not return the PersonJobBuilder.
+            // builder
+            //     .Called("Shock")
+            //     .WorkAsA("Nobody");
         }
     }
 }
