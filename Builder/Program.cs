@@ -2,6 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using static System.Console;
+using Builder.Exercises;
 
 namespace Builder
 {
@@ -59,7 +60,7 @@ namespace Builder
             person.Postcode = postcode;
             return this;
         }
-        
+
         public PersonAddressBuilder In(string city)
         {
             person.City = city;
@@ -97,17 +98,20 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            var pb = new PersonBuider();
-            Person person = pb
-                .Lives
-                    .At("No.9487 Somewhere road")
-                    .In("Big city")
-                    .WithPostcode("5487")
-                .Works
-                    .At("Some company")
-                    .AsA("Engineer")
-                    .Earning(87000);
-            WriteLine(person);
+            // var pb = new PersonBuider();
+            // Person person = pb
+            //     .Lives
+            //         .At("No.9487 Somewhere road")
+            //         .In("Big city")
+            //         .WithPostcode("5487")
+            //     .Works
+            //         .At("Some company")
+            //         .AsA("Engineer")
+            //         .Earning(87000);
+            // WriteLine(person);
+
+            var cb = new CodeBuilder("Person").AddField("Name", "string").AddField("Age", "int");
+            WriteLine(cb);
         }
     }
 }
