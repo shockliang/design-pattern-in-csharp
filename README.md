@@ -23,3 +23,14 @@ Recap design pattern.
     * High-level modules should not depend upon low-level ones; use abstractions.
 
 ## Builder Pattern ##
+* Motivation
+    * Some objects are simple and cna be created in a single constructor call.
+    * Other objects require a lot of ceremony ot create.
+    * Having an object with 10 constructor argument is not productive.
+    * Instead, opt for piecewise construction.
+    * Builder provides an API for construction an object step-by-step.
+* When piecewise object construciont is complicated, provide an API for doing it succinctly.
+* A builder is a seprate component for building an object.
+* Can either give builder a constructor or return it via a static function.
+* To make builder fluent, `return this`.
+* Different facets of an object can be built with different builders working in tandem via a base class.
