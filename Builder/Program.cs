@@ -10,28 +10,49 @@ namespace Builder
         public string Name;
         public string Position;
 
+        public class Builder : PersonJobBuilder<Builder>
+        {
+
+        }
+
+        public static Builder New => new Builder();
+
         public override string ToString()
         {
-            return $"{nameof(Name)}: {name}, {nameof(Position)}: {Position}";
+            return $"{nameof(Name)}: {Name}, {nameof(Position)}: {Position}";
         }
     }
 
-    public class PersonInfoBuilder
+    public abstract class PersonBuilder
     {
         protected Person person = new Person();
-        public PersonInfoBuilder Called(string name)
+
+        public Person Build()
         {
-            person.Name = name;
-            return this;
+            return person;
         }
     }
 
-    public class PersonJobBuilder: PersonInfoBuilder
+    public class PersonInfoBuilder<SELF>
+        : PersonBuilder
+        where SELF : PersonInfoBuilder<SELF>
     {
-        public PersonJobBuilder WorkAsA(string position)
+
+        public SELF Called(string name)
+        {
+            person.Name = name;
+            return (SELF) this;
+        }
+    }
+
+    public class PersonJobBuilder<SELF>
+        : PersonInfoBuilder<PersonJobBuilder<SELF>>
+        where SELF : PersonJobBuilder<SELF>
+    {
+        public SELF WorkAsA(string position)
         {
             person.Position = position;
-            return this;
+            return (SELF) this;
         }
     }
 
@@ -39,12 +60,11 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            var builder = new PersonJobBuilder();
-
-            // This doesn't work cause the PersonInfoBuilder did not return the PersonJobBuilder.
-            // builder
-            //     .Called("Shock")
-            //     .WorkAsA("Nobody");
+            var me = Person.New
+                .Called("Shock")
+                .WorkAsA("Engineer")
+                .Build();
+            WriteLine(me);
         }
     }
 }
