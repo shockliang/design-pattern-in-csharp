@@ -9,7 +9,7 @@ namespace Factories
         Polar
     }
 
-    public class Point
+    public class PointFactory
     {
         public static Point NewCartesianPoint(double x, double y)
         {
@@ -20,9 +20,13 @@ namespace Factories
         {
             return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta));
         }
+    }
+
+    public class Point
+    {
         private double x, y;
 
-        private Point(double x, double y)
+        public Point(double x, double y)
         {
             this.x = x;
             this.y = y;
@@ -37,7 +41,7 @@ namespace Factories
     {
         static void Main(string[] args)
         {
-            var point = Point.NewPolarPoint(1.0, Math.PI / 2);
+            var point = PointFactory.NewPolarPoint(1.0, Math.PI / 2);
             WriteLine(point);
         }
     }
