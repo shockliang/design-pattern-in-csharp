@@ -34,3 +34,5 @@ Recap design pattern.
 * Can either give builder a constructor or return it via a static function.
 * To make builder fluent, `return this`.
 * Different facets of an object can be built with different builders working in tandem via a base class.
+
+## Factory Pattern ##
