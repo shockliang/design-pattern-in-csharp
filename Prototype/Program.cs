@@ -3,7 +3,12 @@ using static System.Console;
 
 namespace Prototype
 {
-    public class Person
+    public interface IPrototype<T>
+    {
+        T DeepCopy();
+    }
+
+    public class Person : IPrototype<Person>
     {
         public string[] Names;
         public Address Address;
@@ -24,9 +29,14 @@ namespace Prototype
         {
             return $"{nameof(Names)}: {string.Join(" ", Names)}, {nameof(Address)}: {Address}";
         }
+
+        public Person DeepCopy()
+        {
+            return new Person(Names, Address.DeepCopy());
+        }
     }
 
-    public class Address
+    public class Address : IPrototype<Address>
     {
         public string StreetName;
         public int HouseNumber;
@@ -47,6 +57,11 @@ namespace Prototype
         {
             return $"{nameof(StreetName)}: {StreetName}, {nameof(HouseNumber)}: {HouseNumber}";
         }
+
+        public Address DeepCopy()
+        {
+            return new Address(StreetName, HouseNumber);
+        }
     }
 
     class Program
@@ -56,7 +71,7 @@ namespace Prototype
             var john = new Person(new string[] { "John", "Smith" },
                 new Address("London Road", 123));
 
-            var jane = new Person(john);
+            var jane = john.DeepCopy();
             jane.Address.HouseNumber = 789;
 
             WriteLine(john);
