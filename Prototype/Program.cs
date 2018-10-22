@@ -1,14 +1,27 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using static System.Console;
 
 namespace Prototype
 {
-    public interface IPrototype<T>
+    public static class ExtensionMethods
     {
-        T DeepCopy();
+        public static T DeepCopy<T>(this T self)
+        {
+            var stream = new MemoryStream();
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, self);
+            stream.Seek(0, SeekOrigin.Begin);
+            var copy = formatter.Deserialize(stream);
+            stream.Close();
+            return (T)copy;
+        }
     }
 
-    public class Person : IPrototype<Person>
+    [Serializable]
+    public class Person
     {
         public string[] Names;
         public Address Address;
@@ -29,14 +42,10 @@ namespace Prototype
         {
             return $"{nameof(Names)}: {string.Join(" ", Names)}, {nameof(Address)}: {Address}";
         }
-
-        public Person DeepCopy()
-        {
-            return new Person(Names, Address.DeepCopy());
-        }
     }
 
-    public class Address : IPrototype<Address>
+    [Serializable]
+    public class Address
     {
         public string StreetName;
         public int HouseNumber;
@@ -57,11 +66,6 @@ namespace Prototype
         {
             return $"{nameof(StreetName)}: {StreetName}, {nameof(HouseNumber)}: {HouseNumber}";
         }
-
-        public Address DeepCopy()
-        {
-            return new Address(StreetName, HouseNumber);
-        }
     }
 
     class Program
@@ -72,6 +76,7 @@ namespace Prototype
                 new Address("London Road", 123));
 
             var jane = john.DeepCopy();
+            jane.Names[0] = "Jane";
             jane.Address.HouseNumber = 789;
 
             WriteLine(john);
