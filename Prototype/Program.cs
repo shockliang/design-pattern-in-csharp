@@ -18,13 +18,24 @@ namespace Prototype
             stream.Close();
             return (T)copy;
         }
+        public static T DeepCopyXml<T>(this T self)
+        {
+            using (var ms = new MemoryStream())
+            {
+                var s = new XmlSerializer(typeof(T));
+                s.Serialize(ms, self);
+                ms.Position = 0;
+                return (T)s.Deserialize(ms);
+            }
+        }
     }
 
-    [Serializable]
     public class Person
     {
         public string[] Names;
         public Address Address;
+
+        public Person() { }
 
         public Person(string[] names, Address address)
         {
@@ -44,11 +55,12 @@ namespace Prototype
         }
     }
 
-    [Serializable]
     public class Address
     {
         public string StreetName;
         public int HouseNumber;
+
+        public Address() { }
 
         public Address(string streetName, int houseNumber)
         {
@@ -75,7 +87,7 @@ namespace Prototype
             var john = new Person(new string[] { "John", "Smith" },
                 new Address("London Road", 123));
 
-            var jane = john.DeepCopy();
+            var jane = john.DeepCopyXml();
             jane.Names[0] = "Jane";
             jane.Address.HouseNumber = 789;
 
