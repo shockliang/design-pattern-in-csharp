@@ -53,3 +53,15 @@ Recap design pattern.
 * Hierarchies of factories can be used to create related objects.
 
 ## Prototype Pattern ##
+* Motivation
+    * Complicated objects (e.g., cars) aren't designed from scratch.
+        * They reiterate existing designs.
+    * An existing (partially or fully constructed) design is a `Prototype`.
+    * We make a copy (clone) the prototype and customize it.
+        * Requires 'deep copy' support.
+    * We make the cloning convenient (e.g., via a Factory)
+* A partially or fully initialized object that you copy (clone) and make use of.
+* To implement a prototype, partially construct an object nad store it somewhere.
+* Clone the prototype.
+    * Implement your won deep copy functionality; or serialize and deserialize.
+* Customize the resulting instance.
