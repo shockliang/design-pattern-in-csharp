@@ -65,3 +65,5 @@ Recap design pattern.
 * Clone the prototype.
     * Implement your won deep copy functionality; or serialize and deserialize.
 * Customize the resulting instance.
+
+## Singleton Pattern ##
