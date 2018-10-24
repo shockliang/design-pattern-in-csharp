@@ -5,4 +5,14 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="morelinq" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="capitals.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>  
+  </ItemGroup>
+
 </Project>
