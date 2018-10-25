@@ -15,9 +15,12 @@ namespace Singleton
     public class SingletonDatabase : IDatabase
     {
         private Dictionary<string, int> capitals;
+        private static int instanceCount = 0;
+        public static int Count => instanceCount;
 
         private SingletonDatabase()
         {
+            instanceCount++;
             WriteLine("Initializing database");
             capitals = File.ReadAllLines("capitals.txt")
                 .Batch(2)
@@ -37,6 +40,18 @@ namespace Singleton
 
         public static SingletonDatabase Instance => instance.Value;
     }
+
+    public class SingletonRecordFinder
+    {
+        public int GetTotalPopulation(IEnumerable<string> names)
+        {
+            int result = 0;
+            foreach (var name in names)
+                result += SingletonDatabase.Instance.GetPopulation(name);
+            return result;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)

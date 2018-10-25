@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{E803E31E-65E4-4046-8BAE-6B1A53ECDFC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton.Test", "Singleton.Test\Singleton.Test.csproj", "{4CD8A954-EB2F-4A73-88D5-B064F234398F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{E803E31E-65E4-4046-8BAE-6B1A53ECDFC8}.Release|x64.Build.0 = Release|Any CPU
 		{E803E31E-65E4-4046-8BAE-6B1A53ECDFC8}.Release|x86.ActiveCfg = Release|Any CPU
 		{E803E31E-65E4-4046-8BAE-6B1A53ECDFC8}.Release|x86.Build.0 = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|x64.Build.0 = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Debug|x86.Build.0 = Debug|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|x64.ActiveCfg = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|x64.Build.0 = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|x86.ActiveCfg = Release|Any CPU
+		{4CD8A954-EB2F-4A73-88D5-B064F234398F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
