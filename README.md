@@ -67,3 +67,18 @@ Recap design pattern.
 * Customize the resulting instance.
 
 ## Singleton Pattern ##
+* Motivation
+    * For some components it only makes sense to have one in the system.
+        * Database repository.
+        * Object factory.
+    * E.g., the constructor call is expensive.
+        * We only do it once.
+        * We provide everyone with the same instance.
+    * Want to prevent anyone creating additional copies.
+    * Need to take care of lazy instantiation and thread safety.
+* A component which is instantiated only once.
+* Making a 'safe' singleton is easy:
+    * Constrct a static `Lazy<T>` and return its value;
+* Singletons ard difficult to test.
+* Instead of directly using a singleton, consider depending on an abstraction(e.g., an interface)
+* Consider difining singleton lifetime in DI container.
