@@ -21,6 +21,7 @@ namespace Adapter
         static void Main(string[] args)
         {
             Draw();
+            Draw();
         }
 
         private static void Draw()
