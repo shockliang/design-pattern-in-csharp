@@ -82,3 +82,6 @@ Recap design pattern.
 * Singletons ard difficult to test.
 * Instead of directly using a singleton, consider depending on an abstraction(e.g., an interface)
 * Consider difining singleton lifetime in DI container.
+
+## Adapter Pattern ##
+
