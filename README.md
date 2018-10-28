@@ -91,4 +91,6 @@ Recap design pattern.
 * Create a component which aggregates (has a reference to,....) the adapter.
 * Intermediate representations can pile up: use caching and other optimizations.
 
+## Bridge Pattern ##
+
 
