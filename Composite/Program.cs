@@ -7,16 +7,16 @@ namespace Composite
     {
         static void Main(string[] args)
         {
-            var drawing = new GraphicObject { Name = "My Drawing" };
-            drawing.Children.Add(new Square { Color = "Red" });
-            drawing.Children.Add(new Circle { Color = "Yello" });
+            var neuron1 = new Neuron();
+            var neuron2 = new Neuron();
 
-            var group = new GraphicObject();
-            group.Children.Add(new Circle { Color = "Blue" });
-            group.Children.Add(new Square { Color = "Blue" });
-            drawing.Children.Add(group);
+            neuron1.ConnectTo(neuron2);
 
-            WriteLine(drawing);
+            var layer1 = new NeuronLayer();
+            var layer2 = new NeuronLayer();
+
+            neuron1.ConnecTo(layer1);
+            layer1.ConnecTo(layer2);
         }
     }
 }
