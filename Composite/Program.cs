@@ -15,8 +15,8 @@ namespace Composite
             var layer1 = new NeuronLayer();
             var layer2 = new NeuronLayer();
 
-            neuron1.ConnecTo(layer1);
-            layer1.ConnecTo(layer2);
+            neuron1.ConnectTo(layer1);
+            layer1.ConnectTo(layer2);
         }
     }
 }

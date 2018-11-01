@@ -27,7 +27,7 @@ namespace Composite
 
     public static class ExtensionMethods
     {
-        public static void ConnecTo(this IEnumerable<Neuron> self, IEnumerable<Neuron> other)
+        public static void ConnectTo(this IEnumerable<Neuron> self, IEnumerable<Neuron> other)
         {
             if (ReferenceEquals(self, other)) return;
 
