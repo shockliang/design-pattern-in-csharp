@@ -106,5 +106,18 @@ Recap design pattern.
 * A stronger form of encapsulation.
 
 ## Composite Pattern ##
+* Motivation
+    * Objects use other object's fields/properties/members through inheritance and composition.
+    * Composition lets us make compound objects.
+        * A mathematical expression composed of simple expressions.
+        * A grouping of shapes that consists of several shapes.
+    * Composite design pattern is used to treat both single (scalar) and composite objects uniformly.
+        * `Foo` and `Collection<Foo>` have common APIs.
+* A mechanism for treating individual (scalar) objects and compositions of objects in a uniform manner.
+* Objects can use other objects via inheritance/composition.
+* Some composed and singular objects need similar/identical behaviors.
+* Composite design pattern lets us treat both types of objects uniformly.
+* C# has special support for the enumeration concept.
+* A single object can masquerade as collection with `yield return this`.
 
 
