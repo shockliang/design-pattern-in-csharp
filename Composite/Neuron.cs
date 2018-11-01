@@ -25,7 +25,7 @@ namespace Composite
 
     }
 
-    public static class ExtensionMethods
+    public static class NeuronExtensionMethods
     {
         public static void ConnectTo(this IEnumerable<Neuron> self, IEnumerable<Neuron> other)
         {
