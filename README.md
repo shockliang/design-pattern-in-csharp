@@ -120,4 +120,5 @@ Recap design pattern.
 * C# has special support for the enumeration concept.
 * A single object can masquerade as collection with `yield return this`.
 
+## Decorator Pattern ##
 
