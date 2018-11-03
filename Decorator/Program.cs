@@ -8,12 +8,9 @@ namespace Decorator
     {
         static void Main(string[] args)
         {
-            var cb = new CodeBuilder();
-            cb.AppendLine("class Foo")
-                .AppendLine("{")
-                .AppendLine("}");
-                
-            WriteLine(cb);
+            MyStringBuilder say = "hello ";
+            say += "world!";
+            WriteLine(say);
         }
     }
 }
