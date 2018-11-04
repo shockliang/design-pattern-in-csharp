@@ -139,7 +139,5 @@ Recap design pattern.
 
 ## Facade ##
 
-## Testing commmit to github commit ##gs
-
 
 
