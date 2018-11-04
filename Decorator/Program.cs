@@ -8,9 +8,10 @@ namespace Decorator
     {
         static void Main(string[] args)
         {
-            MyStringBuilder say = "hello ";
-            say += "world!";
-            WriteLine(say);
+            var d = new Dragon();
+            d.Weight = 123;
+            d.Fly();
+            d.Crawl();
         }
     }
 }
