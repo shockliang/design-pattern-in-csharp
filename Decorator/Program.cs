@@ -8,10 +8,14 @@ namespace Decorator
     {
         static void Main(string[] args)
         {
-            var d = new Dragon();
-            d.Weight = 123;
-            d.Fly();
-            d.Crawl();
+            var square = new Square(1.23f);
+            WriteLine(square.AsString());
+
+            var redSquare = new ColoredShape(square, "red");
+            WriteLine(redSquare.AsString());
+
+            var redHalfTransparentSquare = new TransparentShape(redSquare, 0.5f);
+            WriteLine(redHalfTransparentSquare.AsString());
         }
     }
 }
