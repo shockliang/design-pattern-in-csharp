@@ -137,3 +137,6 @@ Recap design pattern.
     * `X<Y<Foo>>`
     * Very limited due to inability to inherit from type parameters.
 
+## Facade ##
+
+
