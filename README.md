@@ -121,4 +121,19 @@ Recap design pattern.
 * A single object can masquerade as collection with `yield return this`.
 
 ## Decorator Pattern ##
+* Motivation
+    * Adding behavior without altering the class itself.
+    * Want to augment an object with additional functionality.
+    * Do not want to rewrite or alter existing code (Open-Closed Principle)
+    * Want to keep new functionality separate (Single Responsibility Principle)
+    * Need to be able to interact with existing structures.
+        * Two options:
+            * Inherit from required object if possible; some objects are sealed.
+            * Build a Decorator, which simply references the decorated object(s).
+* Facilitates the addition of behaviors to individual objects without inheriting from them.
+* A decorator keeps the reference to the decorated object(s).
+* May or may not proxy over calls.
+* Exists in static variation.
+    * `X<Y<Foo>>`
+    * Very limited due to inability to inherit from type parameters.
 
