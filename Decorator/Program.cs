@@ -8,14 +8,11 @@ namespace Decorator
     {
         static void Main(string[] args)
         {
-            var square = new Square(1.23f);
-            WriteLine(square.AsString());
-
-            var redSquare = new ColoredShape(square, "red");
+            var redSquare = new ColoredShape<Square>("red");
             WriteLine(redSquare.AsString());
 
-            var redHalfTransparentSquare = new TransparentShape(redSquare, 0.5f);
-            WriteLine(redHalfTransparentSquare.AsString());
+            var circle = new TransparentShape<ColoredShape<Circle>>(0.4f);
+            WriteLine(circle.AsString());
         }
     }
 }
