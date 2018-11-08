@@ -138,6 +138,19 @@ Recap design pattern.
     * Very limited due to inability to inherit from type parameters.
 
 ## Facade ##
+* Motivation
+    * Blaancing complexity and presentation/usability.
+    * Typical home example.
+        * Many subsystems (electrical, sanitation)
+        * Complex internal structure (e.g., floor layers)
+        * End user is not exposed to internals.
+    * Same with software
+        * Many systems working to provide flexibility.
+        * API consumers want it to 'just work'.
+* Provides a simple, easy to understand/user interface over a large and sophisticated body of code.
+* Build a facade to provide a simplified API over a set of classes.
+* May wish to (optionally) expose internals through the facade.
+* May allow users to 'escalate' to use more complex APIs if they need to.
 
 
 
