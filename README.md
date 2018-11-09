@@ -137,7 +137,7 @@ Recap design pattern.
     * `X<Y<Foo>>`
     * Very limited due to inability to inherit from type parameters.
 
-## Facade ##
+## Facade Pattern ##
 * Motivation
     * Blaancing complexity and presentation/usability.
     * Typical home example.
@@ -151,6 +151,9 @@ Recap design pattern.
 * Build a facade to provide a simplified API over a set of classes.
 * May wish to (optionally) expose internals through the facade.
 * May allow users to 'escalate' to use more complex APIs if they need to.
+
+## Flyweight Pattern ##
+* 
 
 
 
