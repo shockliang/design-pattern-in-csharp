@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.0.20171219.105559" />
+  </ItemGroup>
+
 </Project>
