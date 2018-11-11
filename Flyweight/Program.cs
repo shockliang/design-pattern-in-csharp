@@ -46,7 +46,9 @@ namespace Flyweight
     {
         static void Main(string[] args)
         {
-
+            var ft = new FormattedText("This is a brave new world");
+            ft.Capitalize(10, 15);
+            WriteLine(ft);
         }
     }
 }
