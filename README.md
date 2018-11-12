@@ -168,4 +168,6 @@ Recap design pattern.
 * Define the idea of 'ranges' on homogeneous collections and store data related to those ranges.
 * .NET string interning is the 'Flyweight pattern'.
 
+## Proxy Pattern ##
+
 
