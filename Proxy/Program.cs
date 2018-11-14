@@ -8,8 +8,9 @@ namespace Proxy
     {
         static void Main(string[] args)
         {
-            ICar car = new CarProxy(new Driver(22));
-            car.Drive();
+            var c = new Creature();
+            c.Agility = 10;
+            c.Agility = 10;
         }
     }
 }
