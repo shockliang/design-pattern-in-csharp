@@ -8,9 +8,11 @@ namespace Proxy
     {
         static void Main(string[] args)
         {
-            var c = new Creature();
-            c.Agility = 10;
-            c.Agility = 10;
+            var ba = Log<BankAccount>.As<IBankAccount>();
+            ba.Deposit(100);
+            ba.Withdraw(50);
+
+            WriteLine(ba);
         }
     }
 }
