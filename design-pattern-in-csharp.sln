@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flyweight.Test", "Flyweight
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj", "{E4C87C75-AA05-4E72-BAD8-579C4892A0BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "ChainOfResponsibility\ChainOfResponsibility.csproj", "{E1C0EE61-FF69-45CE-A146-60361661FF49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -198,5 +200,17 @@ Global
 		{E4C87C75-AA05-4E72-BAD8-579C4892A0BD}.Release|x64.Build.0 = Release|Any CPU
 		{E4C87C75-AA05-4E72-BAD8-579C4892A0BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{E4C87C75-AA05-4E72-BAD8-579C4892A0BD}.Release|x86.Build.0 = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Debug|x86.Build.0 = Debug|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x64.Build.0 = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x86.ActiveCfg = Release|Any CPU
+		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

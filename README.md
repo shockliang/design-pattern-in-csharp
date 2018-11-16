@@ -187,3 +187,4 @@ Recap design pattern.
 * Add relevant functionality to the redefined member functions.
 * Different proxyies (communiction, logging, caching, etc.) have completely different behaviors.
 
+## Chain Of Responsibility ##
