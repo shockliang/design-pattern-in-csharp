@@ -169,5 +169,21 @@ Recap design pattern.
 * .NET string interning is the 'Flyweight pattern'.
 
 ## Proxy Pattern ##
-
+* Motivation
+    * You are calling `foo.Bar()`.
+    * This assumes that foo is in the same process as Bar().
+    * What if, Later on, you want to pull all Foo-related operations into a separate process.
+    * Proxy to the rescure!
+        * Same interface, entirely different behavior.
+    * This is called a communication proxy.
+        * Other types: loggin, virtual, guarding,...
+* A class that functions as an interface to a particular resource. That resource may be remote, expensive to construct, or may require logging or some other added functionality.
+* Proxy vs. Decorator
+    * Proxy provides an identical interface; decorator provides an enhanced interface.
+    * Decorator typically aggregates (or has reference to) what it is decorating; proxy doesn't have to.
+    * Proxy might not even be working with a materialized object.
+* A proxy has the same interface as the underlying object.
+* To create a proxy, simply replicate the existing interface of an object.
+* Add relevant functionality to the redefined member functions.
+* Different proxyies (communiction, logging, caching, etc.) have completely different behaviors.
 
