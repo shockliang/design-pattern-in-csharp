@@ -6,14 +6,37 @@ namespace ChainOfResponsibility
     public class Creature
     {
         public string Name;
-        public int Attack;
-        public int Defense;
+        private int attack;
+        private int defense;
 
-        public Creature(string name, int attack, int defense)
+        private Game game;
+
+        public Creature(Game game, string name, int attack, int defense)
         {
-            this.Defense = defense;
-            this.Attack = attack;
+            this.game = game ?? throw new ArgumentNullException(nameof(game));
+            this.defense = defense;
+            this.attack = attack;
             this.Name = name;
+        }
+
+        public int Attack
+        {
+            get
+            {
+                var query = new Query(this.Name, Query.Argument.Attack, attack);
+                game.PerformQuery(this, query);
+                return query.Value;
+            }
+        }
+
+        public int Defense
+        {
+            get
+            {
+                var query = new Query(this.Name, Query.Argument.Defense, defense);
+                game.PerformQuery(this, query);
+                return query.Value;
+            }
         }
 
         public override string ToString()
@@ -22,55 +45,55 @@ namespace ChainOfResponsibility
         }
     }
 
-    public class CreatureModifier
+    public abstract class CreatureModifier : IDisposable
     {
+        protected Game game;
         protected Creature creature;
-        protected CreatureModifier next;    // linked list
 
-        public CreatureModifier(Creature creature)
+        public CreatureModifier(Game game, Creature creature)
         {
+            this.game = game ?? throw new ArgumentNullException(nameof(game));
             this.creature = creature ?? throw new ArgumentNullException(nameof(creature));
+            game.Queries += Handle;
         }
 
-        public void Add(CreatureModifier creatureModifier)
+        protected abstract void Handle(object sender, Query query);
+
+        public void Dispose()
         {
-            if (next != null) next.Add(creatureModifier);
-            else next = creatureModifier;
-        }
-
-        public virtual void Handle() => next?.Handle();
-    }
-
-    public class NoBonusesModifier : CreatureModifier
-    {
-        public NoBonusesModifier(Creature creature) : base(creature) { }
-
-        public override void Handle()
-        {
-            // nothing to do to prevent traversing the linked list.
+            game.Queries -= Handle;
         }
     }
 
     public class DoubleAttackModifier : CreatureModifier
     {
-        public DoubleAttackModifier(Creature creature) : base(creature) { }
-
-        public override void Handle()
+        public DoubleAttackModifier(Game game, Creature creature) : base(game, creature)
         {
-            WriteLine($"Doubling {creature.Name}'s attack");
-            creature.Attack *= 2;
-            base.Handle();
+        }
+
+        protected override void Handle(object sender, Query query)
+        {
+            if (query.CreatureName == creature.Name
+                && query.WhatToQuery == Query.Argument.Attack)
+            {
+                query.Value *= 2;
+            }
         }
     }
 
     public class IncreasedDefenseModifier : CreatureModifier
     {
-        public IncreasedDefenseModifier(Creature creature) : base(creature) { }
-
-        public override void Handle()
+        public IncreasedDefenseModifier(Game game, Creature creature) : base(game, creature)
         {
-            WriteLine($"Increasing {creature.Name}'s defense");
-            creature.Defense += 3;
+        }
+
+        protected override void Handle(object sender, Query query)
+        {
+            if (query.CreatureName == creature.Name
+               && query.WhatToQuery == Query.Argument.Defense)
+            {
+                query.Value += 3;
+            }
         }
     }
 }

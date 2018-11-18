@@ -7,21 +7,18 @@ namespace ChainOfResponsibility
     {
         static void Main(string[] args)
         {
-            var goblin = new Creature("Goblin", 2, 2);
+            var game = new Game();
+            var goblin = new Creature(game, "Strong Goblin", 3, 3);
             WriteLine(goblin);
 
-            var root = new CreatureModifier(goblin);
-
-            root.Add(new NoBonusesModifier(goblin));
-
-            WriteLine("Let's double the goblin's attack");
-
-            root.Add(new DoubleAttackModifier(goblin));
-
-            WriteLine("Let's increase goblin's defense");
-            root.Add(new IncreasedDefenseModifier(goblin));
-
-            root.Handle();
+            using (new DoubleAttackModifier(game, goblin))
+            {
+                WriteLine(goblin);
+                using (new IncreasedDefenseModifier(game, goblin))
+                {
+                    WriteLine(goblin);
+                }
+            }
 
             WriteLine(goblin);
         }
