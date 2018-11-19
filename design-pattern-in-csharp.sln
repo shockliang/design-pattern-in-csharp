@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "ChainOfResponsibility\ChainOfResponsibility.csproj", "{E1C0EE61-FF69-45CE-A146-60361661FF49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -212,5 +214,17 @@ Global
 		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x64.Build.0 = Release|Any CPU
 		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x86.ActiveCfg = Release|Any CPU
 		{E1C0EE61-FF69-45CE-A146-60361661FF49}.Release|x86.Build.0 = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|x64.Build.0 = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Debug|x86.Build.0 = Debug|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|x64.ActiveCfg = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|x64.Build.0 = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|x86.ActiveCfg = Release|Any CPU
+		{A5696E5C-9BF2-4A8F-8AA9-0A502666D53E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

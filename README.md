@@ -209,3 +209,5 @@ Recap design pattern.
 * Chain of Reponsibility can be implemented as a chain of references or a centralized construct.
 * Enlist objects in the chain, possibly controlling their order.
 * Object removal from chain (e.g., in `Dispose()`)
+
+## Command Pattern ##
