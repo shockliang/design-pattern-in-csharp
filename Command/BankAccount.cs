@@ -14,13 +14,16 @@ namespace CommandPattern
             WriteLine($"Deposited ${amount}, balance is {balance}");
         }
 
-        public void Withdraw(int amount)
+        public bool Withdraw(int amount)
         {
             if (balance - amount >= overdraftLimit)
             {
                 balance -= amount;
                 WriteLine($"Withdrew ${amount}, balance is {balance}");
+                return true;
             }
+
+            return false;
         }
 
         public override string ToString()
@@ -32,6 +35,7 @@ namespace CommandPattern
     public interface ICommand
     {
         void Call();
+        void Undo();
     }
 
     public class BankAccountCommand : ICommand
@@ -45,6 +49,7 @@ namespace CommandPattern
 
         private Action action;
         private int amount;
+        private bool succeeded;
 
         public BankAccountCommand(BankAccount account, Action action, int amount)
         {
@@ -59,10 +64,26 @@ namespace CommandPattern
             {
                 case Action.Deposit:
                     account.Deposit(amount);
+                    succeeded = true;
                     break;
 
                 case Action.Withdraw:
+                    succeeded = account.Withdraw(amount);
+                    break;
+            }
+        }
+
+        public void Undo()
+        {
+            if (!succeeded) return;
+            switch (action)
+            {
+                case Action.Deposit:
                     account.Withdraw(amount);
+                    break;
+
+                case Action.Withdraw:
+                    account.Deposit(amount);
                     break;
             }
         }
