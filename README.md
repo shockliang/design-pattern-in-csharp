@@ -211,3 +211,16 @@ Recap design pattern.
 * Object removal from chain (e.g., in `Dispose()`)
 
 ## Command Pattern ##
+* Motivation
+    * Ordinary c# statements are perishable.
+        * Cannot undo a field/property assignment.
+        * Cannot directly serialize a sequence of actons(call)
+    * Want an object that represents an operation.
+        * X should change its propert Y to Z.
+        * X should do W().
+    * Uses: GUI commands, multi-level undo/redo, macro recording and more!.
+* An object which represents an instruction to perform a particular action. Contains all the information necessary for the action to be taken.
+* Encapsulate all detail of an operation in a separate object.
+* Define instruction for applying the command (either in the command itself, or elsewhere)
+* Optionally define instructions for undoing the command.
+* Can create composite commands (aka macros)
