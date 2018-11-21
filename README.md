@@ -224,3 +224,5 @@ Recap design pattern.
 * Define instruction for applying the command (either in the command itself, or elsewhere)
 * Optionally define instructions for undoing the command.
 * Can create composite commands (aka macros)
+
+## Interpreter Pattern ##
