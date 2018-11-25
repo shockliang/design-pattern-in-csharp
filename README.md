@@ -247,3 +247,5 @@ Recap design pattern.
         ]
     ]
 * Parsed data can then be traversed.
+
+## Iterator Pattern ##
