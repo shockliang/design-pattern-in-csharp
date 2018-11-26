@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace Iterator
 {
@@ -6,7 +7,20 @@ namespace Iterator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //   1
+            //  / \
+            // 2   3
+
+            // in-order: 213
+
+            var root = new Node<int>(1, new Node<int>(2), new Node<int>(3));
+            var it = new InOrderIterator<int>(root);
+            while (it.MoveNext())
+            {
+                Write(it.Current.Value);
+                Write(',');
+            }
+            WriteLine();
         }
     }
 }
