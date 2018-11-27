@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using static System.Console;
 
 namespace Iterator
@@ -21,6 +22,10 @@ namespace Iterator
                 Write(',');
             }
             WriteLine();
+
+            var tree = new BinaryTree<int>(root);
+            WriteLine(string.Join(",", tree.InOrder.Select(x => x.Value)));
+
         }
     }
 }
