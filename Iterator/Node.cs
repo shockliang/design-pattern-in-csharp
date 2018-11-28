@@ -31,34 +31,15 @@ namespace Iterator
             this.root = root;
         }
 
-        public IEnumerable<Node<T>> InOrder
+        public InOrderIterator<T> GetEnumerator()
         {
-            get
-            {
-                IEnumerable<Node<T>> Traverse(Node<T> current)
-                {
-                    if (current.Left != null)
-                    {
-                        foreach (var left in Traverse(current.Left))
-                            yield return left;
-                    }
-                    yield return current;
-                    if (current.Right != null)
-                    {
-                        foreach (var right in Traverse(current.Right))
-                            yield return right;
-                    }
-                }
-
-                foreach (var node in Traverse(root))
-                    yield return node;
-            }
+            return new InOrderIterator<T>(root);
         }
     }
 
     public class InOrderIterator<T>
     {
-        public Node<T> Current;
+        public Node<T> Current { get; set; }
 
         private readonly Node<T> root;
 
