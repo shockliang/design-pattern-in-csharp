@@ -22,7 +22,6 @@ namespace Iterator
             {
                 WriteLine(node.Value);
             }
-
         }
     }
 }
