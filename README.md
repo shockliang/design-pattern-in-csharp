@@ -261,3 +261,5 @@ Recap design pattern.
 * An iterator object, unlike a method, cannot be recursive.
 * Generally, an `IEnumerable<T>` returnning method is enough.
 * Iteration works through dock typing - you need a `GetEnumerator()` that yeild return a type that has `Current` and `MoveNext()`.
+
+## Mediator Pattern ##
