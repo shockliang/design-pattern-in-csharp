@@ -249,3 +249,15 @@ Recap design pattern.
 * Parsed data can then be traversed.
 
 ## Iterator Pattern ##
+* Motivation
+    * Iteration (traversal) is a core functionality of various data structures.
+    * An iterator is a class that facilitates the traversal.
+        * Keeps a reference to the current element.
+        * Knows how to move to a diferent element.
+    * Iterator is an implicit construct.
+        * .Net builds a state machine around your `yield return` statements.
+* An object (or, in .Net method) that facilitates the traversal of a data structure.
+* An iterator specified how you can traverse an object.
+* An iterator object, unlike a method, cannot be recursive.
+* Generally, an `IEnumerable<T>` returnning method is enough.
+* Iteration works through dock typing - you need a `GetEnumerator()` that yeild return a type that has `Current` and `MoveNext()`.
