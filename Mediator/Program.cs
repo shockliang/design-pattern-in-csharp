@@ -1,4 +1,5 @@
 ﻿using System;
+using Autofac;
 
 namespace Mediator
 {
@@ -6,22 +7,26 @@ namespace Mediator
     {
         static void Main(string[] args)
         {
-            var room = new ChatRoom();
+            var cb = new ContainerBuilder();
+            cb.RegisterType<EventBroker>().SingleInstance();
+            cb.RegisterType<FootballCoach>();
+            cb.Register((c, p) => new FootballPlayer(
+                c.Resolve<EventBroker>(),
+                p.Named<string>("name")
+            ));
 
-            var john = new Person("John");
-            var jane = new Person("Jane");
+            using (var c = cb.Build())
+            {
+                var coach = c.Resolve<FootballCoach>();
+                var player1 = c.Resolve<FootballPlayer>(new NamedParameter("name", "John"));
+                var player2 = c.Resolve<FootballPlayer>(new NamedParameter("name", "Chris"));
 
-            room.Join(john);
-            room.Join(jane);
-
-            john.Say("Hi");
-            jane.Say("oh, hey John");
-
-            var simon = new Person("Simon");
-            room.Join(simon);
-            simon.Say("Hi everyone!");
-
-            jane.PrivateMessage("Simon", "Hey Simon!");
+                player1.Score();
+                player1.Score();
+                player1.Score();
+                player1.AssaaultReferee();
+                player2.Score();
+            }
         }
     }
 }
