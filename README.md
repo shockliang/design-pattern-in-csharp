@@ -263,3 +263,18 @@ Recap design pattern.
 * Iteration works through dock typing - you need a `GetEnumerator()` that yeild return a type that has `Current` and `MoveNext()`.
 
 ## Mediator Pattern ##
+* Motivation
+    * Components may go in and out of a system any time.
+        * Chat room
+        * MMORPG
+    * It make no sense for them to have direct references to one another.
+        * Those references may go dead.
+    * Solution: Have then all refer some central component that facilites communication.
+* A component that facilites communication between other components without them necessarily being aware of each other or having direct(reference) access each other.
+* Create the mediator and have each object in the system refer to it.
+    * E.g., in a field
+* Mediator engages in bidirectional communication with its connected components.
+* Mediator has functions the components can call.
+* Components have functions the mediator can call.
+* Event processing (e.g., RX) libraries make communication easier to implement.
+
