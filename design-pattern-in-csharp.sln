@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "Iterator\Iterat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator", "Mediator\Mediator.csproj", "{444B301C-31D7-4918-88CF-3FCA71816AB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memento", "Memento\Memento.csproj", "{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -268,5 +270,17 @@ Global
 		{444B301C-31D7-4918-88CF-3FCA71816AB8}.Release|x64.Build.0 = Release|Any CPU
 		{444B301C-31D7-4918-88CF-3FCA71816AB8}.Release|x86.ActiveCfg = Release|Any CPU
 		{444B301C-31D7-4918-88CF-3FCA71816AB8}.Release|x86.Build.0 = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|x64.Build.0 = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Debug|x86.Build.0 = Debug|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|x64.ActiveCfg = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|x64.Build.0 = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{A7ECDD0F-31C4-4457-A062-5EE6C01708D6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

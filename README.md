@@ -278,3 +278,5 @@ Recap design pattern.
 * Components have functions the mediator can call.
 * Event processing (e.g., RX) libraries make communication easier to implement.
 
+## Memento Pattern ##
+
