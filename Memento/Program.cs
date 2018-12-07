@@ -12,11 +12,14 @@ namespace Memento
             var m2 = ba.Deposit(25);    // 175
             WriteLine(ba);
 
-            ba.Restore(m1);
-            WriteLine(ba);
+            ba.Undo();
+            WriteLine($"Undo 1: {ba}");
 
-            ba.Restore(m2);
-            WriteLine(ba);
+            ba.Undo();
+            WriteLine($"Undo 2: {ba}");
+
+            ba.Redo();
+            WriteLine($"Redo: {ba}");
 
         }
     }
