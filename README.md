@@ -291,3 +291,5 @@ Recap design pattern.
 * A memento is not required to expose directly the state(s) to which it reverts the system.
 * Can be used to implement undo/redo.
 
+## Null Object Pattern ##
+
