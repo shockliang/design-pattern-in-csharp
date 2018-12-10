@@ -1,5 +1,6 @@
 using System;
-
+using System.Dynamic;
+using ImpromptuInterface;
 using static System.Console;
 
 namespace NullObject
@@ -27,12 +28,12 @@ namespace NullObject
     {
         public void Info(string msg)
         {
-            
+
         }
 
         public void Warn(string msg)
         {
-            
+
         }
     }
 
@@ -50,6 +51,19 @@ namespace NullObject
         {
             balance += amount;
             log.Info($"Deposited {amount}, balance is now {balance}");
+        }
+    }
+
+    public class Null<TInterface> : DynamicObject
+        where TInterface : class
+    {
+        public static TInterface Instance
+            => new Null<TInterface>().ActLike<TInterface>();
+
+        public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
+        {
+            result = Activator.CreateInstance(binder.ReturnType);
+            return true;
         }
     }
 }
