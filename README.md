@@ -308,3 +308,4 @@ Recap design pattern.
 * Dynamic construction possible
     * With associated performance implications.
 
+## Observer Pattern ##
