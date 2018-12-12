@@ -7,16 +7,25 @@ namespace Observer
     {
         static void Main(string[] args)
         {
-            var person = new Person();
-            person.FallsIll += CallDoctor;
-            person.CatchACold();
-            person.FallsIll - CallDoctor;
-            person.CatchACold();
+            var button = new Button();
+            var window = new Window(button);
+            var windowRef = new WeakReference(window);
+            button.Fire();
+
+            WriteLine("Setting window to null");
+            window = null;
+
+            FireGC();
+            WriteLine($"Is the windows alive after GC? {windowRef.IsAlive}");
         }
 
-        private static void CallDoctor(object sender, FallsIllEventArgs e)
+        private static void FireGC()
         {
-            WriteLine($"A Doctor has benn called to {e.Address}");
+            WriteLine("Starting GC");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            WriteLine("GC is done!");
         }
     }
 }
