@@ -1,27 +1,16 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Observer
 {
-    public class Market : INotifyPropertyChanged
+    public class Market
     {
-        private float volatility;
+        public BindingList<float> Prices = new BindingList<float>();
 
-        public float Volatility
+        public void AddPrice(float price)
         {
-            get => volatility;
-            set
-            {
-                if (value.Equals(volatility)) return;
-                volatility = value;
-                OnPropertyChanged(nameof(Volatility));
-            }
+            Prices.Add(price);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using static System.Console;
 
 namespace Observer
@@ -8,15 +9,16 @@ namespace Observer
         static void Main(string[] args)
         {
             var market = new Market();
-            market.PropertyChanged += (sender, eventArgs) =>
+            market.Prices.ListChanged += (sender, eventArgs) =>
             {
-                if (eventArgs.PropertyName == "Volatility")
+                if (eventArgs.ListChangedType == ListChangedType.ItemAdded)
                 {
-                    WriteLine($"Volatility property changed!");
+                    var price = ((BindingList<float>)sender)[eventArgs.NewIndex];
+                    WriteLine($"Binding list got a price of {price}");
                 }
             };
 
-            market.Volatility = 0.5f;
+            market.AddPrice(123.0f);
         }
     }
 }
