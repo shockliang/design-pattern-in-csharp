@@ -309,3 +309,18 @@ Recap design pattern.
     * With associated performance implications.
 
 ## Observer Pattern ##
+* Motivation
+    * We need to be informed when certain things happen.
+        * Object's property changes.
+        * Object does something.
+        * Some external event occurs.
+    * We want to listen to events and notified when they occur.
+    * Built into C# with the event keyword.
+        * But then what is this `IObservable<T>/IObserver<T>` for?
+        * Waht about `INotifyPropertyChanging/Changed`?
+        * And what are `BindingList<T>/ObservableCollection<T>` ?
+* An observer is an object that wishes to be informed about events happening in the system. The entity generating the events is an observable.
+* Observer is an intrusive approach: an observable must provide an event to subscrible to.
+* Special care must be taken to prvent issues in multithreaded scenarios.
+* .Net comes with observable collections.
+* IObserver<T>/IObservable<T> are used in stream processing (Reactive Extesions).
