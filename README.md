@@ -324,3 +324,5 @@ Recap design pattern.
 * Special care must be taken to prvent issues in multithreaded scenarios.
 * .Net comes with observable collections.
 * IObserver<T>/IObservable<T> are used in stream processing (Reactive Extesions).
+
+## State Pattern ##

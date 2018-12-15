@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullObject", "NullObject\Nu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer", "Observer\Observer.csproj", "{AB5ECDC9-9182-4E59-9982-9B41204525C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State", "State\State.csproj", "{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -310,5 +312,17 @@ Global
 		{AB5ECDC9-9182-4E59-9982-9B41204525C5}.Release|x64.Build.0 = Release|Any CPU
 		{AB5ECDC9-9182-4E59-9982-9B41204525C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{AB5ECDC9-9182-4E59-9982-9B41204525C5}.Release|x86.Build.0 = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|x64.Build.0 = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Debug|x86.Build.0 = Debug|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|x64.ActiveCfg = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|x64.Build.0 = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|x86.ActiveCfg = Release|Any CPU
+		{6FAA6FE5-1C1F-4554-B52E-882FB7186CDE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
