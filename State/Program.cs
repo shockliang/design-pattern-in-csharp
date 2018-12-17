@@ -1,56 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Stateless;
 using static System.Console;
 
 namespace State
 {
     class Program
     {
-        public enum MyState
+        public static bool ParentsNotWatching { get; private set; }
+
+        public enum Health
         {
-            Locked,
-            Failed,
-            Unlocked
+            NonReproductive,
+            Pregnant,
+            Reproductive
         }
 
+        public enum Activity
+        {
+            GiveBirth,
+            ReachPuberty,
+            HaveAbortion,
+            HaveUnprotectedSex,
+            Historectomy
+        }
         static void Main(string[] args)
         {
-            var code = "1234";
-            var state = MyState.Locked;
-            var entry = new StringBuilder();
+            var machine = new StateMachine<Health, Activity>(Health.NonReproductive);
+            machine.Configure(Health.NonReproductive)
+                .Permit(Activity.ReachPuberty, Health.Reproductive);
 
-            while (true)
-            {
-                switch (state)
-                {
-                    case MyState.Locked:
-                        entry.Append(ReadKey().KeyChar);
-
-                        if(entry.ToString() == code)
-                        {
-                            state = MyState.Unlocked;
-                            break;
-                        }
-                        
-                        if(!code.StartsWith(entry.ToString()))
-                        {
-                            state = MyState.Failed;
-                        }
-                        break;
-                    case MyState.Failed:
-                        CursorLeft = 0;
-                        WriteLine("FAILED");
-                        entry.Clear();
-                        state = MyState.Locked;
-                        break;
-                    case MyState.Unlocked:
-                        CursorLeft = 0;
-                        WriteLine("UNLOCKED");
-                        return;
-                }
-
-            }
+            machine = new StateMachine<Health, Activity>(Health.NonReproductive);
+            machine.Configure(Health.NonReproductive)
+                .Permit(Activity.ReachPuberty, Health.Reproductive);
+            machine.Configure(Health.Reproductive)
+                .Permit(Activity.Historectomy, Health.NonReproductive)
+                .PermitIf(Activity.HaveUnprotectedSex, Health.Pregnant,
+                () => ParentsNotWatching);
+            machine.Configure(Health.Pregnant)
+                .Permit(Activity.GiveBirth, Health.Reproductive)
+                .Permit(Activity.HaveAbortion, Health.Reproductive);
         }
     }
 }
