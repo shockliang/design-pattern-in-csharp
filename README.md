@@ -335,3 +335,9 @@ Recap design pattern.
     * Changes in state can be explicit or in response to event (Observer pattern).
 * A pattern in which the object's behavior is determined by its state. An object transitions from one state to another (something needs to trigger a transition).
 * A formalized construct which manage state and transitions is call a `state machine`.
+* Given sufficient complexity, it pays to formally define possible states and events/triggers
+* Can define.
+    * State entry/exit behaviors.
+    * Action when a particular event causes a transition.
+    * Guard conditions enabling/disabling a transition.
+    * Defaut action when no transitions are found for an event.
