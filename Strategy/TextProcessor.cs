@@ -46,23 +46,10 @@ namespace Strategy
         public void Start(StringBuilder sb) { }
     }
 
-    public class TextProcessor
+    public class TextProcessor<LS> where LS : IListStrategy, new()
     {
         private StringBuilder sb = new StringBuilder();
-        private IListStrategy listStrategy;
-
-        public void SetOutputFormat(OutputFormat format)
-        {
-            switch (format)
-            {
-                case OutputFormat.Markdown:
-                    listStrategy = new MarkdownListStrategy();
-                    break;
-                case OutputFormat.Html:
-                    listStrategy = new HtmlListStrategy();
-                    break;
-            }
-        }
+        private IListStrategy listStrategy = new LS();
 
         public void AppendList(IEnumerable<string> items)
         {
