@@ -341,3 +341,5 @@ Recap design pattern.
     * Action when a particular event causes a transition.
     * Guard conditions enabling/disabling a transition.
     * Defaut action when no transitions are found for an event.
+
+## Strategy Pattern ##
