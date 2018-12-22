@@ -355,3 +355,5 @@ Recap design pattern.
 * Define an algorithm at a high level.
 * Define the interface you expect each strategy to follow.
 * Provide for either dynamic ofr static compsition of strategy in the overall algorithm.
+
+## Template Method Pattern ##
