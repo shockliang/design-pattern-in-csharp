@@ -6,7 +6,8 @@ namespace TemplateMethod
     {
         static void Main(string[] args)
         {
-            
+            var chess = new Chess();
+            chess.Run();
         }
     }
 }
