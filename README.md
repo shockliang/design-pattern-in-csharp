@@ -357,3 +357,16 @@ Recap design pattern.
 * Provide for either dynamic ofr static compsition of strategy in the overall algorithm.
 
 ## Template Method Pattern ##
+* Motivation
+    * Algorithms can be decomposed into common parts + specifics.
+    * Strategy pattern does this through composition
+        * High-level algorithm uses an interface.
+        * Concrete implementations implement the interface.
+    * Template Method does the same thing through inheritance.
+        * Overall algorithm makes use of abstract member.
+        * Inheritors override the abstract members.
+        * Parent template method invoked.
+* Allows us to define the 'skeleton' of the algorithm, with concrete implementations defined in subclasses.
+* Define an algorithm at a high level.
+* Define constituent parts as abstract methods/properties.
+* Inherit the algorithm class, providing necessary override.
