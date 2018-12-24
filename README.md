@@ -370,3 +370,5 @@ Recap design pattern.
 * Define an algorithm at a high level.
 * Define constituent parts as abstract methods/properties.
 * Inherit the algorithm class, providing necessary override.
+
+## Vistor ##
