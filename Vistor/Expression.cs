@@ -4,42 +4,47 @@ namespace Vistor
 {
     public abstract class Expression
     {
-        public abstract void Print(StringBuilder sb);
+        
+    }
+
+    public static class ExpressionPrinter
+    {
+        public static void Print(Expression e, StringBuilder sb)
+        {
+            if (e is DoubleExpression de)
+            {
+                sb.Append(de.Value);
+            }
+            else if (e is AdditionExpression ae)
+            {
+                sb.Append("(");
+                Print(ae.Left, sb);
+                sb.Append("+");
+                Print(ae.Right, sb);
+                sb.Append(")");
+            }
+        }
     }
 
     public class DoubleExpression : Expression
     {
-        private double value;
+        public double Value;
 
         public DoubleExpression(double value)
         {
-            this.value = value;
-        }
-
-        public override void Print(StringBuilder sb)
-        {
-            sb.Append(value);
+            this.Value = value;
         }
     }
 
     public class AdditionExpression : Expression
     {
-        private readonly Expression left;
-        private readonly Expression right;
+        public readonly Expression Left;
+        public readonly Expression Right;
 
         public AdditionExpression(Expression left, Expression right)
         {
-            this.left = left ?? throw new System.ArgumentNullException(nameof(left));
-            this.right = right ?? throw new System.ArgumentNullException(nameof(right));
-        }
-
-        public override void Print(StringBuilder sb)
-        {
-            sb.Append("(");
-            left.Print(sb);
-            sb.Append("+");
-            right.Print(sb);
-            sb.Append(")");
+            this.Left = left ?? throw new System.ArgumentNullException(nameof(left));
+            this.Right = right ?? throw new System.ArgumentNullException(nameof(right));
         }
     }
 }

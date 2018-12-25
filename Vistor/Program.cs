@@ -16,7 +16,7 @@ namespace Vistor
                 ));
 
             var sb = new StringBuilder();
-            e.Print(sb);
+            ExpressionPrinter.Print(e, sb);
             WriteLine(sb.ToString());
         }
     }
