@@ -1,29 +1,55 @@
+using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Vistor
 {
+    using DicType = Dictionary<Type, Action<Expression, StringBuilder>>;
+
     public abstract class Expression
     {
-        
+
     }
 
     public static class ExpressionPrinter
     {
-        public static void Print(Expression e, StringBuilder sb)
+        private static DicType actions = new DicType
         {
-            if (e is DoubleExpression de)
+            [typeof(DoubleExpression)] = (e, sb) =>
             {
+                var de = (DoubleExpression)e;
                 sb.Append(de.Value);
-            }
-            else if (e is AdditionExpression ae)
+            },
+            [typeof(AdditionExpression)] = (e, sb) =>
             {
+                var ae = (AdditionExpression)e;
                 sb.Append("(");
                 Print(ae.Left, sb);
                 sb.Append("+");
                 Print(ae.Right, sb);
                 sb.Append(")");
             }
+        };
+
+        public static void Print(Expression e, StringBuilder sb)
+        {
+            actions[e.GetType()](e, sb);
         }
+        // public static void Print(Expression e, StringBuilder sb)
+        // {
+        //     if (e is DoubleExpression de)
+        //     {
+        //         sb.Append(de.Value);
+        //     }
+        //     else if (e is AdditionExpression ae)
+        //     {
+        //         sb.Append("(");
+        //         Print(ae.Left, sb);
+        //         sb.Append("+");
+        //         Print(ae.Right, sb);
+        //         sb.Append(")");
+        //     }
+        // }
     }
 
     public class DoubleExpression : Expression
