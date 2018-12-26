@@ -15,9 +15,13 @@ namespace Vistor
                     new DoubleExpression(3)
                 ));
 
-            var sb = new StringBuilder();
-            ExpressionPrinter.Print(e, sb);
-            WriteLine(sb.ToString());
+            var ep = new ExpressionPrinter();
+            ep.Visit(e);
+            WriteLine(ep.ToString());
+
+            var calc = new ExpressionCalculator();
+            calc.Visit(e);
+            WriteLine($"{ep} = {calc.Result}");
         }
     }
 }

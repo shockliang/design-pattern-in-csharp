@@ -4,52 +4,15 @@ using System.Text;
 
 namespace Vistor
 {
-    using DicType = Dictionary<Type, Action<Expression, StringBuilder>>;
+    public interface IExpressionVisitor
+    {
+        void Visit(DoubleExpression de);
+        void Visit(AdditionExpression ae);
+    }
 
     public abstract class Expression
     {
-
-    }
-
-    public static class ExpressionPrinter
-    {
-        private static DicType actions = new DicType
-        {
-            [typeof(DoubleExpression)] = (e, sb) =>
-            {
-                var de = (DoubleExpression)e;
-                sb.Append(de.Value);
-            },
-            [typeof(AdditionExpression)] = (e, sb) =>
-            {
-                var ae = (AdditionExpression)e;
-                sb.Append("(");
-                Print(ae.Left, sb);
-                sb.Append("+");
-                Print(ae.Right, sb);
-                sb.Append(")");
-            }
-        };
-
-        public static void Print(Expression e, StringBuilder sb)
-        {
-            actions[e.GetType()](e, sb);
-        }
-        // public static void Print(Expression e, StringBuilder sb)
-        // {
-        //     if (e is DoubleExpression de)
-        //     {
-        //         sb.Append(de.Value);
-        //     }
-        //     else if (e is AdditionExpression ae)
-        //     {
-        //         sb.Append("(");
-        //         Print(ae.Left, sb);
-        //         sb.Append("+");
-        //         Print(ae.Right, sb);
-        //         sb.Append(")");
-        //     }
-        // }
+        public abstract void Accept(IExpressionVisitor visitor);
     }
 
     public class DoubleExpression : Expression
@@ -59,6 +22,12 @@ namespace Vistor
         public DoubleExpression(double value)
         {
             this.Value = value;
+        }
+
+        public override void Accept(IExpressionVisitor visitor)
+        {
+            // double dispatch.
+            visitor.Visit(this);
         }
     }
 
@@ -71,6 +40,50 @@ namespace Vistor
         {
             this.Left = left ?? throw new System.ArgumentNullException(nameof(left));
             this.Right = right ?? throw new System.ArgumentNullException(nameof(right));
+        }
+
+        public override void Accept(IExpressionVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+    }
+
+    public class ExpressionPrinter : IExpressionVisitor
+    {
+        private StringBuilder sb = new StringBuilder();
+
+        public void Visit(DoubleExpression de)
+        {
+            sb.Append(de.Value);
+        }
+
+        public void Visit(AdditionExpression ae)
+        {
+            sb.Append("(");
+            ae.Left.Accept(this);
+            sb.Append("+");
+            ae.Right.Accept(this);
+            sb.Append(")");
+        }
+
+        public override string ToString() => sb.ToString();
+    }
+
+    public class ExpressionCalculator : IExpressionVisitor
+    {
+        public double Result;
+        public void Visit(DoubleExpression de)
+        {
+            Result = de.Value;
+        }
+
+        public void Visit(AdditionExpression ae)
+        {
+            ae.Left.Accept(this);
+            var a = Result;
+            ae.Right.Accept(this);
+            var b = Result;
+            Result = a + b;
         }
     }
 }
