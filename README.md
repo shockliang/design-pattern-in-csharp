@@ -372,3 +372,20 @@ Recap design pattern.
 * Inherit the algorithm class, providing necessary override.
 
 ## Vistor ##
+* Motivation
+    * Need to define a new operation on an entire class hierarchy.
+        * E.g., make a document model printable to HTML/Markdown.
+    * Do not want to keep modifying every class in the hierarchy.
+    * Need access to non-common aspects of classes in the hierarchy.
+        * I.e., an extension method won't do.
+    * Create an external component to handle rendering.
+        * But avoid type checks.
+    * A pattern where a component (visitor) is allowed to traverse the entire inheritance hierarchy. Implemented by propagation a single `visit()` mehtod throughout the entire hierarchy.
+    * Dispatch
+        * Which function to call?
+        * Single dispatch: depends on name of request and type of receiver.
+        * Double dispatch: depends on name of request and type of two receivers (type of visitor, type of element being visited)
+* Propagate an accept (Visitor v) method throughout the entire hierarchy.
+* Create a visitor with `Visit(Fool), Visit(Bar)`, ...for each element in the hierarchy.
+* Each `accept()` simply calls visitor. `Visit(this)`.
+* Using dynamic, we can invoke right overload based on argument type alone (dynamic dispatch).
