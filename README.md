@@ -294,7 +294,7 @@ Recap design pattern.
 ## Null Object Pattern ##
 * Motivation
     * When component A uses component B, it typically assumes that B is non-null.
-        * You inject B, not B? or some Option<B>.
+        * You inject B, not B? or some `Option<B>`.
         * You do not check for null(?.) on every call.
     * There is no option of telling A not to use an instance of B.
         * It use is hard-coded.
