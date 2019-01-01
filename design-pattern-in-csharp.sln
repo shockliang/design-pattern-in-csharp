@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreter.Test", "Interpr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator.Test", "Iterator.Test\Iterator.Test.csproj", "{31A61F1D-2471-47D8-9E2D-E95890864E93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator.Test", "Mediator.Test\Mediator.Test.csproj", "{6880C503-272B-40BD-B0FD-4D3071A598EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -408,5 +410,17 @@ Global
 		{31A61F1D-2471-47D8-9E2D-E95890864E93}.Release|x64.Build.0 = Release|Any CPU
 		{31A61F1D-2471-47D8-9E2D-E95890864E93}.Release|x86.ActiveCfg = Release|Any CPU
 		{31A61F1D-2471-47D8-9E2D-E95890864E93}.Release|x86.Build.0 = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|x64.Build.0 = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Debug|x86.Build.0 = Debug|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x64.ActiveCfg = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x64.Build.0 = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
