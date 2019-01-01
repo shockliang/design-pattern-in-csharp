@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator.Test", "Iterator.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator.Test", "Mediator.Test\Mediator.Test.csproj", "{6880C503-272B-40BD-B0FD-4D3071A598EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memento.Test", "Memento.Test\Memento.Test.csproj", "{4628A772-C38F-479D-8820-9E3A51D2A7F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -422,5 +424,17 @@ Global
 		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x64.Build.0 = Release|Any CPU
 		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{6880C503-272B-40BD-B0FD-4D3071A598EB}.Release|x86.Build.0 = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|x64.Build.0 = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|x64.ActiveCfg = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|x64.Build.0 = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{4628A772-C38F-479D-8820-9E3A51D2A7F5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
