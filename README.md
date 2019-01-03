@@ -389,3 +389,20 @@ Recap design pattern.
 * Create a visitor with `Visit(Fool), Visit(Bar)`, ...for each element in the hierarchy.
 * Each `accept()` simply calls visitor. `Visit(this)`.
 * Using dynamic, we can invoke right overload based on argument type alone (dynamic dispatch).
+
+## Course Summary ##
+* Creational patterns
+    * Builder
+        * Separate component for when object construction gets too complicated.
+        * Can create mutually cooperating sub-builders.
+        * Often has fluent interface.
+    * Factories
+        * Factory method more expressive than constructor.
+        * Factory can be an ouside class or inner class; inner class has the benefit of accessing private members.
+    * Prototype
+        * Creation of object from an existing object.
+        * Requires either explicit deep copy or copy through serialization.
+    * Singleton
+        * When you need to ensure just a single instance exists.
+        * Made thread-safe and lazy with `Lazy<T>`
+        * Consider extracting interface of using dependency injection.
