@@ -406,3 +406,20 @@ Recap design pattern.
         * When you need to ensure just a single instance exists.
         * Made thread-safe and lazy with `Lazy<T>`
         * Consider extracting interface of using dependency injection.
+* Structural patterns
+    * Adapter
+        * Converts the interface you get to the interface you need.
+    * Bridge
+        * Decouple abstraction from implementation.
+    * Composite
+        * Allows clients to treat individual objects and compositions of objects uniformly.
+    * Decorator
+        * Attach additional responsibilities to objects.
+    * Facade
+        * Provide a single unified interface over a set of classes/systems.
+    * Flyweight
+        * Efficiently support very large numbers of similar objects.
+    * Proxy
+        * Provide a surrogate object that forwards calls to the real object while performing additional functions
+        * E.g., access control, communication, logging, etc.
+        * Dynamic proxy creates a proxy dynamically, without the necessity of replicating the target object API.
