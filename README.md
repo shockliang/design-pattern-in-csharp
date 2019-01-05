@@ -423,3 +423,37 @@ Recap design pattern.
         * Provide a surrogate object that forwards calls to the real object while performing additional functions
         * E.g., access control, communication, logging, etc.
         * Dynamic proxy creates a proxy dynamically, without the necessity of replicating the target object API.
+* Behavioral patterns
+    * Chain of Responsibility
+        * Allow components to process information/events in a chain
+        * Each elements in the chain refers to next element; or make a list an go through it.
+    * Command
+        * Encapsulate a request into a separate object.
+        * Good for audit, replay, undo/redo.
+        * Part of CQS/CQRS (query is also, effectively, a command)
+    * Interpreter
+        * Transform textual input into object-oriented structures.
+        * Used by interpreters, compilers, static analysis tools, etc.
+        * Compiler Theory is a separate branch of Computer science.
+    * Iterator
+        * Provides an interface for accessing elements of an aggregate object.
+        * `IEnumerable<T>` should be used in 99% of cases.
+    * Mediator
+        * Provides mediation services between two objects.
+        * E.g., message passing like char room.
+    * Memento
+        * Yields tokens representing system states.
+        * Tokens do now allow direct manipulation, but can be used in appropriate APIs.
+    * Observer
+        * Built into c# with the `event` keyword.
+        * Additional support provided for properties, collections and observable streams.
+    * State
+        * We model system by having one of a possible states and transitions between these states.
+        * Such a system is called a state machine.
+        * Special frameworks exists to orchestrate state machines.
+    * Strategy & Template Method
+        * Both patterns define an algorithm blueprint/placeholder.
+        * Strategy used composition, Template Method uses inheritance.
+    * Visitor
+        * Adding functionality to existing classes through double dispatch.
+        * Dynamic visitor possible but with performance cost.
