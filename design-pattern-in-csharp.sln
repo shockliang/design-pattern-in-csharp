@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memento.Test", "Memento.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer.Test", "Observer.Test\Observer.Test.csproj", "{0C8151FD-160E-4AB0-B51E-490210A73FED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State.Test", "State.Test\State.Test.csproj", "{13626E2C-7897-42B8-9D40-C0206F1CD9CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -450,5 +452,17 @@ Global
 		{0C8151FD-160E-4AB0-B51E-490210A73FED}.Release|x64.Build.0 = Release|Any CPU
 		{0C8151FD-160E-4AB0-B51E-490210A73FED}.Release|x86.ActiveCfg = Release|Any CPU
 		{0C8151FD-160E-4AB0-B51E-490210A73FED}.Release|x86.Build.0 = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|x64.Build.0 = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x64.Build.0 = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
