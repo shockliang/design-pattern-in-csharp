@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer.Test", "Observer.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State.Test", "State.Test\State.Test.csproj", "{13626E2C-7897-42B8-9D40-C0206F1CD9CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContinuationPassingStyle", "ContinuationPassingStyle\ContinuationPassingStyle.csproj", "{14B19246-8C74-44E5-8CA9-646BED835F9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -464,5 +466,17 @@ Global
 		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x64.Build.0 = Release|Any CPU
 		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x86.ActiveCfg = Release|Any CPU
 		{13626E2C-7897-42B8-9D40-C0206F1CD9CA}.Release|x86.Build.0 = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|x64.Build.0 = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Debug|x86.Build.0 = Debug|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x64.ActiveCfg = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x64.Build.0 = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x86.ActiveCfg = Release|Any CPU
+		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
