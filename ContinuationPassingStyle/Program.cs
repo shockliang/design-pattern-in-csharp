@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using static System.Console;
 
 namespace ContinuationPassingStyle
@@ -8,7 +9,12 @@ namespace ContinuationPassingStyle
         static void Main(string[] args)
         {
             var solver = new QuadraticEquationSolver();
-            var solutions = solver.Start(1, 10, 16);
+            Tuple<Complex, Complex> solution;
+            var flag = solver.Start(1, 10, 16, out solution);
+            if (flag == WorkflowResult.Success)
+            {
+
+            }
         }
     }
 }

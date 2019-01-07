@@ -3,30 +3,39 @@ using System.Numerics;
 
 namespace ContinuationPassingStyle
 {
-    public class Algorithm
+    public enum WorkflowResult
     {
-
+        Success,
+        Failure
     }
 
     public class QuadraticEquationSolver
     {
         // ax^2+bx+c == 0
-        public Tuple<Complex, Complex> Start(double a, double b, double c)
+        public WorkflowResult Start(double a, double b, double c, out Tuple<Complex, Complex> result)
         {
             var disc = b * b - 4 * a * c;
             if (disc < 0)
-                return SolveComplex(a, b, c, disc);
+            {
+                result = null;
+                return WorkflowResult.Failure;
+            }
             else
-                return SolveSimple(a, b, c, disc);
+            {
+                return SolveSimple(a, b, c, disc, out result);
+            }
         }
 
-        private Tuple<Complex, Complex> SolveSimple(double a, double b, double c, double disc)
+        private WorkflowResult SolveSimple(double a, double b, double c, double disc, out Tuple<Complex, Complex> result)
         {
             var rootDisc = Math.Sqrt(disc);
-            return Tuple.Create(
+
+            result = Tuple.Create(
                 new Complex((-b + rootDisc) / (2 * a), 0),
                 new Complex((-b - rootDisc) / (2 * a), 0)
             );
+
+            return WorkflowResult.Success;
         }
 
         private Tuple<Complex, Complex> SolveComplex(double a, double b, double c, double disc)
