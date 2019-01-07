@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace ContinuationPassingStyle
 {
@@ -6,7 +7,8 @@ namespace ContinuationPassingStyle
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var solver = new QuadraticEquationSolver();
+            var solutions = solver.Start(1, 10, 16);
         }
     }
 }
