@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State.Test", "State.Test\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContinuationPassingStyle", "ContinuationPassingStyle\ContinuationPassingStyle.csproj", "{14B19246-8C74-44E5-8CA9-646BED835F9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalInversionOfControl", "LocalInversionOfControl\LocalInversionOfControl.csproj", "{C227D8DF-BAC8-4EE9-917A-6816AB07B303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -478,5 +480,17 @@ Global
 		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x64.Build.0 = Release|Any CPU
 		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x86.ActiveCfg = Release|Any CPU
 		{14B19246-8C74-44E5-8CA9-646BED835F9F}.Release|x86.Build.0 = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|x64.Build.0 = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Debug|x86.Build.0 = Debug|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|x64.ActiveCfg = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|x64.Build.0 = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|x86.ActiveCfg = Release|Any CPU
+		{C227D8DF-BAC8-4EE9-917A-6816AB07B303}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
