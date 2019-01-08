@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace LocalInversionOfControl
 {
@@ -6,7 +7,7 @@ namespace LocalInversionOfControl
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
