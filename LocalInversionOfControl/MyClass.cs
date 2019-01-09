@@ -21,7 +21,7 @@ namespace LocalInversionOfControl
 
             internal Operation PendingOp;
 
-            internal BoolMarker(bool result, T self, Operating pendingOp)
+            internal BoolMarker(bool result, T self, Operation pendingOp)
             {
                 Result = result;
                 Self = self;
