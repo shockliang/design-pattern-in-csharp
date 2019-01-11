@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalInversionOfControl", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIContainer", "DIContainer\DIContainer.csproj", "{BD06EAAF-0FC5-4CC5-B95B-72BA91065C4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod.Test", "TemplateMethod.Test\TemplateMethod.Test.csproj", "{2C933660-1D38-43AB-BBFC-0711635D662F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -506,5 +508,17 @@ Global
 		{BD06EAAF-0FC5-4CC5-B95B-72BA91065C4A}.Release|x64.Build.0 = Release|Any CPU
 		{BD06EAAF-0FC5-4CC5-B95B-72BA91065C4A}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD06EAAF-0FC5-4CC5-B95B-72BA91065C4A}.Release|x86.Build.0 = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Debug|x86.Build.0 = Debug|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|x64.Build.0 = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2C933660-1D38-43AB-BBFC-0711635D662F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
