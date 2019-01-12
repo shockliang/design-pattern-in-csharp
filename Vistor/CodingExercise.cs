@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace Vistor.Coding.Exercise
 {
@@ -25,10 +26,8 @@ namespace Vistor.Coding.Exercise
 
         public override void Accept(ExpressionVisitor ev)
         {
-            throw new NotImplementedException();
+            ev.Visit(this);
         }
-
-        // todo
     }
 
     public class AdditionExpression : Expression
@@ -43,10 +42,8 @@ namespace Vistor.Coding.Exercise
 
         public override void Accept(ExpressionVisitor ev)
         {
-            throw new NotImplementedException();
+            ev.Visit(this);
         }
-
-        // todo
     }
 
     public class MultiplicationExpression : Expression
@@ -61,33 +58,34 @@ namespace Vistor.Coding.Exercise
 
         public override void Accept(ExpressionVisitor ev)
         {
-            throw new NotImplementedException();
+            ev.Visit(this);
         }
-
-        // todo
     }
 
     public class ExpressionPrinter : ExpressionVisitor
     {
+        private StringBuilder sb = new StringBuilder();
         public override void Visit(Value value)
         {
-            // todo
+            sb.Append(value.TheValue);
         }
 
         public override void Visit(AdditionExpression ae)
         {
-            // todo
+            sb.Append("(");
+            ae.LHS.Accept(this);
+            sb.Append("+");
+            ae.RHS.Accept(this);
+            sb.Append(")");
         }
 
         public override void Visit(MultiplicationExpression me)
         {
-            // todo
+            me.LHS.Accept(this);
+            sb.Append("*");
+            me.RHS.Accept(this);
         }
 
-        public override string ToString()
-        {
-            // todo
-            return "";
-        }
+        public override string ToString() => sb.ToString();
     }
 }
